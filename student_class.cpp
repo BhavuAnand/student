@@ -1,4 +1,5 @@
 # student
+#public inheritance
 
 #include<stdio.h>
 #include<string.h>
@@ -71,3 +72,83 @@ int main()
         printf("\n");
     }
 }
+
+
+#private inheritance
+
+#include<iostream>
+#include<conio.h>
+#include<stdio.h>
+#include<string.h>
+using namespace std;
+class personal
+{
+    int age;
+    char name[50], add[50];
+    public:
+    void get_data()
+    {
+        cout<<"\nEnter Your age: ";
+        cin>>age;
+        cout<<"\nEnter Your Name: ";
+        cin>>name;
+        cout<<"\nEnter Your add: ";
+        cin>>add;
+    }
+    void display()
+    {
+        cout<<"\nage: "<<age;
+        cout<<"\nname: "<<name;
+        cout<<"\nadd: "<<add;
+    }
+    char*get_name()
+    {
+        return name;
+    }
+};
+class student: private personal
+{
+    int roll, marks;
+    char sub[50];
+    public:
+    void feed_info()
+    {
+        get_data();
+    }
+    void show_info()
+    {
+        display();
+    }
+    int get_marks()
+    {
+        return marks;
+    }
+        int get_roll()
+    {
+            return roll;
+    }
+    int comp_sub(char ch[])
+    {
+        return (strcmp(ch,sub));
+    }
+};
+
+int main()
+{
+    int i;
+    student s1[5];
+    for(i=0; i<5; i++)
+    {
+        s1[i].feed_info();
+        s1[i].show_info();
+    }
+    return 0;
+}
+
+
+
+
+
+
+
+
